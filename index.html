@@ -1,6 +1,52 @@
-Telegram Drive Bot
-Cette application personnelle permet de transférer des fichiers entre Telegram, un ordinateur et les comptes Google Drive autorisés par son propriétaire.
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Telegram Drive Bot — Transfert de fichiers</title>
+  <meta name="description" content="Présentation de Telegram Drive Bot, outil personnel de transfert et de gestion de fichiers entre Telegram, un ordinateur ou serveur et Google Drive.">
+  <style>
+    :root { color-scheme:light; --ink:#172033; --muted:#596579; --line:#dce3ec; --blue:#1769aa; --bg:#f5f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:900px; margin:36px auto; padding:clamp(22px,5vw,54px); background:#fff; border:1px solid var(--line); border-radius:18px; }
+    h1 { font-size:clamp(2rem,5vw,2.8rem); line-height:1.15; margin:.2em 0 .5em; }
+    h2 { margin-top:1.8em; font-size:1.3rem; line-height:1.3; }
+    p,li { color:#293447; }
+    a { color:var(--blue); overflow-wrap:anywhere; }
+    .intro { font-size:1.12rem; }
+    .note { padding:14px 16px; border-left:4px solid var(--blue); background:#f0f6fc; border-radius:8px; }
+    footer { border-top:1px solid var(--line); margin-top:34px; padding-top:18px; color:var(--muted); font-size:.92rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Telegram Drive Bot</h1>
+  <p class="intro">Telegram Drive Bot est un outil personnel qui permet à son propriétaire de gérer des transferts de fichiers entre Telegram, l'ordinateur ou le serveur qui exécute le programme et les comptes Google Drive qu'il a autorisés.</p>
 
-Elle permet également de parcourir les fichiers Drive et de gérer les transferts à l'aide d'un bot Telegram.
+  <h2>Fonctionnalités</h2>
+  <ul>
+    <li>Envoyer vers Google Drive des fichiers reçus dans Telegram.</li>
+    <li>Envoyer vers Telegram des fichiers choisis dans Google Drive.</li>
+    <li>Parcourir et rechercher des fichiers et dossiers Drive, consulter le quota et gérer certains dossiers et fichiers.</li>
+    <li>Choisir le compte Google Drive destinataire pour les nouveaux transferts.</li>
+    <li>Envoyer manuellement à Telegram des fichiers placés dans le dossier local prévu à cet effet.</li>
+    <li>Garder une file d'attente locale pour suivre les tâches et tenter de les reprendre après une interruption réseau.</li>
+  </ul>
 
-Confidentialité : les autorisations Google sont utilisées pour accéder aux comptes Drive sélectionnés et exécuter les actions demandées par le propriétaire. Les jetons d'autorisation sont conservés dans les fichiers locaux du worker et de rclone. Ils ne doivent jamais être publiés sur ce site.
+  <h2>Utilisation des données Google</h2>
+  <p>L'application accède aux comptes Google uniquement après l'autorisation du titulaire du compte. Les données nécessaires peuvent inclure l'adresse e-mail du compte, les noms et métadonnées des fichiers et dossiers, des informations de stockage et le contenu des fichiers lorsque leur transfert ou leur gestion est demandé. Ces données servent à exécuter les opérations déclenchées par le propriétaire du bot.</p>
+  <p class="note"><strong>Protection :</strong> les jetons d'autorisation et les configurations du worker et de Rclone sont stockés sur l'ordinateur ou le serveur qui exécute le programme. Ne placez jamais ces fichiers secrets dans ce dépôt public.</p>
+
+  <h2>Confidentialité</h2>
+  <p>La politique explique les données traitées, leur utilisation, leur stockage local, les transferts vers Google Drive ou Telegram et les mesures de contrôle disponibles.</p>
+  <p><strong><a href="/privacy.html">Lire la politique de confidentialité complète</a></strong></p>
+
+  <h2>Contact</h2>
+  <p>Pour les questions relatives à cette application, contactez son responsable : <strong>yael053310@gmail.com</strong>.</p>
+
+  <footer>Telegram Drive Bot — Dernière mise à jour : 28 octobre 2026.</footer>
+</main>
+</body>
+</html>
