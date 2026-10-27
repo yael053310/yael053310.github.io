@@ -1,1 +1,60 @@
-Confidentialité : les autorisations Google sont utilisées pour accéder aux comptes Drive sélectionnés et exécuter les actions demandées par le propriétaire. Les jetons d'autorisation sont conservés dans les fichiers locaux du worker et de rclone. Ils ne doivent jamais être publiés sur ce site.
+Politique de confidentialité
+Application : Telegram Drive Bot
+Dernière mise à jour : 28 octobre 2026
+
+Cette politique explique comment Telegram Drive Bot accède aux données, les utilise, les conserve et les partage. L'application est un outil personnel exploité par son propriétaire pour gérer des transferts de fichiers entre Telegram, l'ordinateur ou le serveur qui exécute le worker, et les comptes Google Drive que le propriétaire autorise.
+
+Important : avant de publier cette page, le responsable doit remplacer le texte entre crochets dans la section « Contact » par une adresse électronique qu'il consulte réellement et vérifier que toutes les pratiques décrites correspondent à la configuration qu'il utilise.
+
+1. Données traitées
+Selon les actions demandées, l'application peut traiter les catégories suivantes :
+
+Données Google : adresse e-mail et nom du compte autorisé lorsqu'ils sont fournis par Google ; noms de fichiers et de dossiers, identifiants, types, tailles, structure des dossiers, liens et autres métadonnées Drive nécessaires à la navigation, à la recherche et à la gestion des fichiers ; informations de quota et d'espace de stockage.
+Contenu des fichiers : le contenu d'un fichier est traité lorsqu'un transfert explicitement demandé doit l'envoyer vers Google Drive ou Telegram, ou lorsqu'une autre fonction de gestion du fichier l'exige.
+Autorisations Google : jetons d'accès et de renouvellement OAuth et informations de configuration nécessaires pour maintenir les comptes autorisés. Rclone dispose d'une configuration d'autorisation distincte pour les opérations avancées, lorsqu'elle est activée.
+Données Telegram : identifiants de compte, de discussion et de message, nom du fichier, informations associées au message et contenu du fichier nécessaire au transfert demandé. Le worker conserve également des informations opérationnelles sur la file de transferts, telles que l'état d'une tâche, les dates, le chemin local et certains détails d'erreur.
+Données techniques : messages d'état et erreurs affichés dans la console du worker. Si l'administrateur de l'ordinateur ou du serveur enregistre ces messages dans des journaux, leur conservation dépend de cette configuration.
+2. Pourquoi ces données sont utilisées
+Les données sont utilisées uniquement pour fournir les fonctions demandées par le propriétaire de l'application : autoriser un compte Google, afficher et rechercher les éléments Drive, afficher le quota, créer ou gérer des dossiers et fichiers, lancer un transfert, suivre son état et reprendre les tâches en attente après un incident.
+
+Les données Google ne sont pas utilisées pour diffuser de la publicité, vendre des informations personnelles ou créer des profils publicitaires. Elles ne sont pas utilisées à des fins indépendantes des fonctions décrites dans cette politique.
+
+3. Comment les données sont traitées et partagées
+Les opérations Google Drive sont exécutées au moyen des autorisations accordées par le titulaire du compte, à travers les API Google et, pour certaines fonctions avancées, le programme Rclone.
+Lorsqu'un transfert Telegram vers Drive est demandé, le fichier est généralement téléchargé temporairement sur l'ordinateur ou le serveur qui exécute le worker, puis envoyé au compte Drive sélectionné.
+Lorsqu'un transfert Drive vers Telegram est demandé, le fichier est généralement téléchargé temporairement sur l'ordinateur ou le serveur, puis envoyé dans la discussion Telegram choisie.
+Les données du fichier sont transmises à Google Drive ou à Telegram lorsque cela est nécessaire pour réaliser le transfert demandé. Google et Telegram traitent alors les données selon leurs propres conditions et politiques de confidentialité.
+Le responsable ne vend pas les données Google et ne les partage pas avec des tiers à des fins publicitaires.
+4. Stockage local et durée de conservation
+Les jetons d'autorisation Google, la configuration de Rclone, la base de données de la file d'attente et les fichiers temporaires sont conservés sur l'ordinateur ou le serveur où le worker est exécuté, dans les fichiers et dossiers utilisés par l'application. Ces éléments ne sont pas envoyés au site GitHub Pages qui héberge cette page de confidentialité.
+
+La base de données de la file d'attente peut conserver des références de messages, des statuts, des dates, des chemins locaux et des informations d'erreur ; elle n'est pas destinée à stocker le contenu binaire complet des fichiers transférés.
+
+Lorsqu'un transfert se termine avec succès, le worker peut supprimer sa copie temporaire conformément à son fonctionnement. Pour les fichiers déposés dans le dossier local upload, un envoi confirmé entraîne leur déplacement vers fait. Un fichier trop volumineux peut être déplacé vers erreur, et un fichier dont l'envoi a échoué peut rester dans upload pour permettre une nouvelle tentative. Les fichiers déplacés dans ces dossiers restent sur la machine jusqu'à leur suppression manuelle.
+
+Les jetons et la configuration d'un compte restent conservés tant que le compte est enregistré dans l'application ou jusqu'à ce qu'ils soient supprimés lors d'une déconnexion ou manuellement. Aucune durée fixe de conservation n'est annoncée : elle dépend de l'utilisation du worker et des actions de son propriétaire.
+
+5. Liens de partage Google Drive
+Si le propriétaire utilise volontairement une fonction de création de lien public, l'application peut modifier les paramètres de partage du fichier concerné pour générer ce lien. Toute personne pouvant accéder au lien peut alors éventuellement consulter le fichier, selon les paramètres de partage de Google Drive. Le propriétaire doit vérifier le fichier et les autorisations avant de créer ou de communiquer un lien. La fonction de retrait du partage peut ne pas supprimer un accès hérité d'un dossier parent ou accordé séparément.
+
+6. Sécurité
+L'accès à l'application est destiné au propriétaire et aux comptes qu'il autorise. Les jetons sont stockés dans les fichiers locaux nécessaires au fonctionnement du worker et de Rclone ; ils ne doivent jamais être publiés dans un dépôt public ni transmis à des personnes non autorisées. La sécurité dépend également de la protection du compte Windows ou du serveur, des sauvegardes et des accès administrateur. Le stockage local par l'application ne doit pas être considéré comme un chiffrement garanti de tous les fichiers.
+
+7. Contrôle, révocation et suppression
+Le propriétaire peut arrêter d'utiliser un compte en le déconnectant dans le bot, supprimer les fichiers qu'il a enregistrés localement et révoquer l'accès de l'application depuis les paramètres de sécurité du compte Google. Après révocation, les fonctions Drive nécessitant ce compte ne pourront plus fonctionner tant qu'une nouvelle autorisation valide n'aura pas été accordée.
+
+La suppression d'une copie locale ne supprime pas automatiquement l'original dans Google Drive ou Telegram. De même, supprimer un fichier dans un service ne garantit pas la suppression des copies que le propriétaire a volontairement enregistrées ailleurs ou de sauvegardes qu'il gère.
+
+8. Services tiers
+L'application s'appuie sur Google Drive et les services d'autorisation Google, Telegram, le programme Rclone pour certaines opérations Drive, ainsi que GitHub Pages pour l'hébergement de ce site. Ces fournisseurs peuvent traiter des données techniques nécessaires à leurs services selon leurs propres politiques de confidentialité et conditions. Ce site statique ne demande pas les jetons Google et ne sert pas à téléverser les fichiers de l'utilisateur.
+
+Politique de confidentialité de Google
+Politique de confidentialité de Telegram
+Déclaration de confidentialité de GitHub
+9. Modifications de cette politique
+Cette politique sera mise à jour si les fonctions ou les pratiques de traitement des données changent. La date de dernière mise à jour sera modifiée en conséquence. Le propriétaire doit lire la politique et s'assurer qu'elle décrit effectivement la version du worker qu'il exécute.
+
+10. Contact
+Pour toute question sur cette politique ou sur les données gérées par l'application, contactez le responsable à l'adresse suivante : yael03310@gmail.com.
+
+Telegram Drive Bot — Politique de confidentialité. Cette page décrit les pratiques du worker personnel et doit être tenue à jour par son propriétaire.
